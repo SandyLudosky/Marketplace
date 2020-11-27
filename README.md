@@ -1,7 +1,7 @@
 # Marketplace
 Final files for the Udemy workshop 👩‍🏫  
 
-![](assets/course-image.png)
+![Course cover](assets/course-image.png)
 
 # Beginner JavaScript
 
