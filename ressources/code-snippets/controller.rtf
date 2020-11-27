@@ -1,0 +1,45 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red70\green137\blue204;\red52\green52\blue52;\red202\green202\blue202;
+\red66\green179\blue255;\red212\green214\blue154;\red140\green211\blue254;\red183\green111\blue179;\red167\green197\blue152;
+\red194\green126\blue101;}
+{\*\expandedcolortbl;;\cssrgb\c33725\c61176\c83922;\csgray\c26515;\cssrgb\c83137\c83137\c83137;
+\cssrgb\c30980\c75686\c100000;\cssrgb\c86275\c86275\c66667;\cssrgb\c61176\c86275\c99608;\cssrgb\c77255\c52549\c75294;\cssrgb\c70980\c80784\c65882;
+\cssrgb\c80784\c56863\c47059;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+const\cf4  \cf5 controller\cf4  = \{\
+    \cf6 findAll\cf7 :\cf4  (\cf7 collection\cf4 , \cf7 _\cf4 , \cf7 res\cf4 ) \cf2 =>\cf4  \{\
+      \cf7 collection\cf4 \
+        .\cf6 find\cf4 ()\
+        .\cf6 toArray\cf4 ()\
+        .\cf6 then\cf4 ((\cf7 error\cf4 , \cf7 results\cf4 ) \cf2 =>\cf4  \{ \
+            \cf8 if\cf4  (\cf7 error\cf4 ) \cf8 return\cf4  \cf7 res\cf4 .\cf6 send\cf4 (\cf7 error\cf4 )\
+            \cf7 res\cf4 .\cf6 status\cf4 (\cf9 200\cf4 ).\cf6 send\cf4 (\{\cf7 results\cf4 \})\
+        \}).\cf6 catch\cf4 (\cf7 err\cf4  \cf2 =>\cf4  \cf7 res\cf4 .\cf6 send\cf4 (\cf7 err\cf4 ))\
+    \},\
+    \cf6 findOne\cf7 :\cf4  (\cf7 collection\cf4 , \cf7 req\cf4 , \cf7 res\cf4 ) \cf2 =>\cf4  \{ \
+       \cf7 collection\cf4 .\cf6 findOne\cf4 (\cf7 req\cf4 .\cf7 body\cf4 )\
+        .\cf6 then\cf4 ((\cf7 error\cf4 , \cf7 results\cf4 ) \cf2 =>\cf4  \{\
+            \cf8 if\cf4  (\cf7 error\cf4 ) \cf8 return\cf4  \cf7 res\cf4 .\cf6 send\cf4 (\cf7 error\cf4 )\
+            \cf8 return\cf4  \cf7 res\cf4 .\cf6 status\cf4 (\cf9 200\cf4 ).\cf6 send\cf4 (\cf7 results\cf4 .\cf7 data\cf4 )\
+        \}).\cf6 catch\cf4 (\cf7 err\cf4  \cf2 =>\cf4  \cf7 res\cf4 .\cf6 send\cf4 (\cf7 err\cf4 ))\
+    \},\
+    \cf6 insertOne\cf7 :\cf4  (\cf7 collection\cf4 , \cf7 req\cf4 , \cf7 res\cf4 ) \cf2 =>\cf4  \{\
+      \cf7 collection\cf4 \
+        .\cf6 insertOne\cf4 (\cf7 req\cf4 .\cf7 body\cf4 )\
+          .\cf6 then\cf4 (() \cf2 =>\cf4   \cf7 res\cf4 .\cf6 status\cf4 (\cf9 200\cf4 ).\cf6 send\cf4 (\cf10 `item successfully inserted`\cf4 ))\
+          .\cf6 catch\cf4 (\cf7 err\cf4  \cf2 =>\cf4   \cf7 res\cf4 .\cf6 send\cf4 (\cf10 `Failed to insert item: \cf2 $\{\cf7 err\cf2 \}\cf10 `\cf4 ))\
+    \}, \
+    \cf6 deleteAll\cf7 :\cf4  (\cf7 collection\cf4 , \cf7 _\cf4 , \cf7 res\cf4 ) \cf2 =>\cf4  \{ \
+      \cf8 if\cf4  (\cf7 process\cf4 .\cf7 env\cf4 .\cf5 ENV\cf4  !== \cf10 "DEVELOPPEMENT"\cf4 ) \{ \cf8 return\cf4  \cf7 res\cf4 .\cf6 send\cf4 (\cf10 'action not permitted'\cf4 )\}\
+      \cf7 collection\cf4 .\cf6 deleteMany\cf4 () \
+      \cf7 res\cf4 .\cf6 status\cf4 (\cf9 200\cf4 ).\cf6 send\cf4 (\cf10 'collection successfully dropped'\cf4 )\
+    \}\
+\}\
+\cf5 module\cf4 .\cf5 exports\cf4  = \cf5 controller\cf4 \
+\
+}

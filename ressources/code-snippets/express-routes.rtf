@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red202\green202\blue202;\red52\green52\blue52;\red89\green138\blue67;
+\red66\green179\blue255;\red212\green214\blue154;\red194\green126\blue101;\red140\green211\blue254;\red70\green137\blue204;
+}
+{\*\expandedcolortbl;;\cssrgb\c83137\c83137\c83137;\csgray\c26515;\cssrgb\c41569\c60000\c33333;
+\cssrgb\c30980\c75686\c100000;\cssrgb\c86275\c86275\c66667;\cssrgb\c80784\c56863\c47059;\cssrgb\c61176\c86275\c99608;\cssrgb\c33725\c61176\c83922;
+}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl360\partightenfactor0
+
+\f0\fs24 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 // Routes - GET\cf2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 endpoints\cf2 .\cf6 get\cf2 (\cf7 '/products'\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 findAll\cf2 (\cf5 products\cf2 , \cf8 req\cf2 , \cf8 res\cf2 )) \
+\cf5 endpoints\cf2 .\cf6 get\cf2 (\cf7 '/users'\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 findAll\cf2 (\cf5 users\cf2 , \cf8 req\cf2 , \cf8 res\cf2 )) \
+\cf5 endpoints\cf2 .\cf6 get\cf2 (\cf7 '/orders'\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 findAll\cf2 (\cf5 orders\cf2 , \cf8 req\cf2 , \cf8 res\cf2 ))\
+\cf5 endpoints\cf2 .\cf6 get\cf2 (\cf7 '/user'\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 findOne\cf2 (\cf5 users\cf2 , \cf8 req\cf2 , \cf8 res\cf2 ))\
+  \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 // Routes - POST\cf2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 endpoints\cf2 .\cf6 post\cf2 (\cf7 '/orders/add'\cf2 , \cf6 jsonParser\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 insertOne\cf2 (\cf5 orders\cf2 , \cf8 req\cf2 , \cf8 res\cf2 ))  \
+\cf5 endpoints\cf2 .\cf6 post\cf2 (\cf7 '/users/add'\cf2 , \cf6 jsonParser\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 insertOne\cf2 (\cf5 users\cf2 , \cf8 req\cf2 , \cf8 res\cf2 )) \
+\
+\pard\pardeftab720\sl360\partightenfactor0
+\cf4 // to remove all documents from a collection\cf2 \
+\pard\pardeftab720\sl360\partightenfactor0
+\cf5 endpoints\cf2 .\cf6 get\cf2 (\cf7 '/orders/delete'\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 deleteAll\cf2 (\cf5 orders\cf2 , \cf8 req\cf2 , \cf8 res\cf2 )) \
+\cf5 endpoints\cf2 .\cf6 get\cf2 (\cf7 '/users/delete'\cf2 , (\cf8 req\cf2 , \cf8 res\cf2 ) \cf9 =>\cf2  \cf6 deleteAll\cf2 (\cf5 users\cf2 , \cf8 req\cf2 , \cf8 res\cf2 )) \
+}
